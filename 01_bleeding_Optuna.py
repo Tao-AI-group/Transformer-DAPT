@@ -130,7 +130,6 @@ def set_seed(seed):
 def get_target(df):
     """
     Extract the target variables (duration and event status) from a DataFrame.
-    These are typically used as the survival target for PyCox.
 
     Args:
         df (pd.DataFrame): A DataFrame containing 'duration' and 'event' columns.
