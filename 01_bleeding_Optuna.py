@@ -643,7 +643,7 @@ def main():
 
     study.optimize(
         lambda trial: objective(trial, study, data_tuple, base_config),
-        n_trials=2,            # Number of trials for demonstration (increase as needed)
+        n_trials=1000,            # Number of trials for demonstration (increase as needed)
         gc_after_trial=True,   # Garbage collection after each trial
         show_progress_bar=True
     )
