@@ -208,6 +208,7 @@ def main():
     parser.add_argument('--saved_data_dir', required=True, help='Directory containing saved data')
     parser.add_argument('--batch_size', type=int, default=32, help='Batch size for processing')
     parser.add_argument('--seed', type=int, default=44, help='Random seed for reproducibility')
+    parser.add_argument('--output_dir', default='results', help='Directory to save results')
     args = parser.parse_args()
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
