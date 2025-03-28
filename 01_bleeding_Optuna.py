@@ -281,14 +281,14 @@ def objective(trial, study, data_tuple, base_config):
     config = EasyDict(base_config.copy())
     
     # Suggest hyperparameters
-    config.lr = trial.suggest_float('lr', 2e-4, 5e-3, log=True)
-    config.batch_size = trial.suggest_categorical('batch_size', [64, 128, 256])
-    config.embedding_size = trial.suggest_categorical('embedding_size', [64, 128])
-    config.num_hidden_layers = trial.suggest_int('num_hidden_layers', 2, 3)
+    config.lr = trial.suggest_float('lr', 1e-4, 5e-3, log=True)
+    config.batch_size = trial.suggest_categorical('batch_size', [32, 64, 128, 256])
+    config.embedding_size = trial.suggest_categorical('embedding_size', [32, 64, 128])
+    config.num_hidden_layers = trial.suggest_int('num_hidden_layers', 1, 3)
     config.weight_decay = trial.suggest_float('weight_decay', 1e-2, 2e-2, log=True)
     config.Triplet_weight = trial.suggest_float('Triplet_weight', 0.4, 0.8)
     config.BCE_weight = trial.suggest_float('BCE_weight', 0.3, 0.5)
-    config.num_durations = trial.suggest_int('num_durations', 21, 24)
+    config.num_durations = trial.suggest_int('num_durations', 18, 30)
     config.Hazard_weight = trial.suggest_float('Hazard_weight', 0.75, 0.95)
     config.num_attention_heads = trial.suggest_categorical('num_attention_heads', [2, 4, 8])
     
