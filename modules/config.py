@@ -28,10 +28,7 @@ STConfig = EasyDict({
 
     # Number of categorical covariates for each patient. Used to set up feature embedding layers.
     'num_categorical_feature': 4,
-
-    # Uncomment if needed for multi-dimensional output. E.g., multi-horizon survival predictions:
-    # 'out_feature': 3,
-
+    
     # Number of competing events. Set to 1 for single-event survival analysis.
     'num_event': 1,
 
