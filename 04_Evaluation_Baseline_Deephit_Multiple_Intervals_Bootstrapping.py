@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split
 from pycox.evaluation import EvalSurv
 from sklearn.preprocessing import StandardScaler
 import random
+from sklearn.metrics import accuracy_score, f1_score, roc_auc_score, average_precision_score, precision_score, recall_score, confusion_matrix
 from pycox.models import DeepHitSingle
 import torchtuples as tt
 from torch import nn
@@ -432,6 +433,31 @@ def main():
 
         print(f"\n{dataset_name} Overall Performance Metrics:")
         print(f"Concordance TD: {concordance_td:.2f}")
+        # Get risk scores for binary prediction
+        risk_scores = -np.log(surv_df.iloc[-1].values)  # Use final timepoint survival probability
+        
+        # Calculate binary metrics
+        predictions_standard = (risk_scores > np.median(risk_scores)).astype(float)
+        accuracy = accuracy_score(events, predictions_standard)
+        f1 = f1_score(events, predictions_standard)
+        auroc = roc_auc_score(events, risk_scores)
+        auprc = average_precision_score(events, risk_scores)
+        
+         # Calculate additional binary metrics: precision, sensitivity (recall) and specificity
+        precision = precision_score(events, predictions_standard)
+        sensitivity = recall_score(events, predictions_standard)
+        tn, fp, fn, tp = confusion_matrix(events, predictions_standard).ravel()
+        specificity = tn / (tn + fp) if (tn + fp) > 0 else 0.0
+
+        print(f"\n{dataset_name} Performance Metrics:")
+        print(f"Concordance TD: {concordance_td:.4f}")
+        print(f"Accuracy: {accuracy:.4f}")
+        print(f"F1 score: {f1:.4f}")
+        print(f"AUROC: {auroc:.4f}")
+        print(f"AUPRC: {auprc:.4f}")
+        print(f"Precision: {precision:.4f}")
+        print(f"Sensitivity (Recall): {sensitivity:.4f}")
+        print(f"Specificity: {specificity:.4f}")
        
         # Only calculate time-specific metrics for test set (to save computation)
         if dataset_name == "Test":
