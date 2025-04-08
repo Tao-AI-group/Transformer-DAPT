@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split
 from pycox.evaluation import EvalSurv
 from sklearn.preprocessing import StandardScaler
 import pickle
+from sklearn.metrics import accuracy_score, f1_score, roc_auc_score, average_precision_score, precision_score, recall_score, confusion_matrix
 from torch import nn, optim
 from pycox.models.loss import CoxPHLoss
 import warnings
@@ -597,6 +598,26 @@ def main():
     ev_test = EvalSurv(surv_test, y_test_duration, y_test_event, censor_surv='km')
     test_c_index = ev_test.concordance_td('antolini')
     print(f"Test Concordance Index: {test_c_index:.2f}")
+
+     # Calculate risk scores and binary metrics for test set
+    test_risk_scores = -np.log(surv_test.iloc[-1].values)
+    test_predictions = (test_risk_scores > np.median(test_risk_scores)).astype(float)
+    test_accuracy = accuracy_score(y_test_event, test_predictions)
+    test_f1 = f1_score(y_test_event, test_predictions)
+    test_auroc = roc_auc_score(y_test_event, test_risk_scores)
+    test_auprc = average_precision_score(y_test_event, test_risk_scores)
+    test_precision = precision_score(y_test_event, test_predictions)
+    test_sensitivity = recall_score(y_test_event, test_predictions)
+    tn, fp, fn, tp = confusion_matrix(y_test_event, test_predictions).ravel()
+    test_specificity = tn / (tn + fp) if (tn+fp) > 0 else 0.0
+    
+    print(f"Test Accuracy: {test_accuracy:.4f}")
+    print(f"Test F1 score: {test_f1:.4f}")
+    print(f"Test AUROC: {test_auroc:.4f}")
+    print(f"Test AUPRC: {test_auprc:.4f}")
+    print(f"Test Precision: {test_precision:.4f}")
+    print(f"Test Sensitivity (Recall): {test_sensitivity:.4f}")
+    print(f"Test Specificity: {test_specificity:.4f}")
 
     # Calculate time-specific metrics with bootstrapping
     print("\nCalculating time-specific metrics...")
