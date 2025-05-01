@@ -118,7 +118,7 @@ python 06_Compare_Models_Performance.py
 ### Feature Importance Analysis
 
 ```bash
-python 02_Feature_Importance_IntegratedGradients.py --model_path [path_to_model] --saved_data_dir [path_to_data]
+python 02_Feature_Importance_IntegratedGradients.py
 ```
 
 ### Model Calibration
