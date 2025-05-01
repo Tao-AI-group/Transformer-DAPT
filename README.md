@@ -77,6 +77,23 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```bash
 pip install -r requirements.txt
 ```
+Key dependencies include:
+- torch==2.4.1
+- torchvision==0.19.1
+- numpy==1.24.4
+- pandas==2.0.3
+- scikit-learn==1.3.2
+- scikit-survival==0.22.2
+- matplotlib==3.7.5
+- easydict==1.9
+- pycox==0.2.3
+- torchtuples==0.2.2
+- optuna==3.6.1
+- captum==0.6.0
+- lifelines==0.27.8
+
+For a complete list of dependencies, see the requirements.txt file.
+
 ## Dummy Data
 For demonstration and reproducibility purposes, we provide synthetic dummy data in the data/ directory:
 
@@ -84,18 +101,6 @@ For demonstration and reproducibility purposes, we provide synthetic dummy data 
 
 This dataset contains 1000 patients with 1000 multi-hot encoded features, including clinical variables such as diagnoses, medications (including DAPT), and procedures. The same dataset can be used for training both ischemic and bleeding event prediction models. The data follows the same format as the actual research data but contains no real patient information, allowing you to test the model implementation without requiring access to sensitive clinical data.
 
-## Requirements
-
-- Python 3.8+
-- PyTorch 1.9+
-- NumPy
-- Pandas
-- scikit-learn
-- Matplotlib
-- Optuna
-- PyCox
-- EasyDict
-- Captum (for integrated gradients)
 
 ## Usage
 
