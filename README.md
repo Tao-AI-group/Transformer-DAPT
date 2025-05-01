@@ -77,6 +77,12 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```bash
 pip install -r requirements.txt
 ```
+## Dummy Data
+For demonstration and reproducibility purposes, we provide synthetic dummy data in the data/ directory:
+
+- data/multihot_encoded.csv: A dataset for both ischemic and bleeding event prediction
+
+This dataset contains 1000 patients with 1000 multi-hot encoded features, including clinical variables such as diagnoses, medications (including DAPT), and procedures. The same dataset can be used for training both ischemic and bleeding event prediction models. The data follows the same format as the actual research data but contains no real patient information, allowing you to test the model implementation without requiring access to sensitive clinical data.
 
 ## Requirements
 
