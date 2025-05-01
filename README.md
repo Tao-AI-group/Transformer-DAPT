@@ -32,7 +32,7 @@ Transformer-DAPT consists of several specialized components designed for surviva
 - **FeatureEmbedding Layer**: Converts categorical indices into dense embeddings with dropout regularization and padding token handling
 - **Feature Encoder**: Processes individual feature embeddings through a linear layer, layer normalization, ReLU activation, and dropout
 - **Multi-Head Self-Attention**: The core component that dynamically models feature interactions, with masked attention to handle variable-length feature sets
-- **Dual-Output Classification Heads**:
+- **Dual-Output Heads**:
   - **PC-Hazard Head**: Outputs time-dependent hazard estimates for survival prediction
   - **Binary Classification Head**: Provides an immediate event risk score for clinical interpretation
 - **Calibration Layer**: Post-processing with isotonic regression to ensure reliable probability estimates
