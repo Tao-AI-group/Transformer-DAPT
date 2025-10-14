@@ -1,4 +1,4 @@
-# Transformer-DAPT: Transformer-DAPT: AI-based dynamic assessment of ischemic and bleeding risks in patients on DAPT following PCI
+# Transformer-DAPT: AI-based dynamic assessment of ischemic and bleeding risks in patients on DAPT following PCI
 
 This repository contains the implementation of Transformer-DAPT, a novel transformer-based model developed for optimizing dual antiplatelet therapy (DAPT) management after percutaneous coronary intervention (PCI). The model analyzes multi-hot encoded clinical features to individually predict both ischemic events and bleeding complications within a 365-day window post-PCI. By providing separate predictions for each outcome type, Transformer-DAPT enables clinicians to assess a patient's specific risk profile for both complications independently. The model outperforms traditional survival models (DeepSurv and DeepHit) in time-specific concordance indices at clinically relevant intervals (30, 60, 90, 180, 270, and 365 days).
 
