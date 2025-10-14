@@ -43,7 +43,7 @@ Transformer-DAPT consists of several specialized components designed for surviva
 Transformer-DAPT/
 ├── modules/                        # Core model implementation modules
 │   ├── model.py                    # Main Transformer-DAPT model implementation
-│   ├── modeling_bert.py            # Classification head components based on BERT architecture
+│   ├── modeling_bert.py            # Classification head components
 │   ├── config.py                   # Model configuration settings
 │   ├── train_utils.py              # Training utilities and Trainer class
 │   ├── model_comparison.py         # Statistical comparison tools for model evaluation
