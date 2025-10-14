@@ -144,7 +144,7 @@ If you use Transformer-DAPT in your research, please cite our paper:
 
 ```bibtex
 @article{transformer_dapt,
-  title={Transformer-DAPT: Transformer-DAPT: AI-based dynamic assessment of ischemic and bleeding risks in patients on DAPT following PCI},
+  title={Transformer-DAPT: AI-based dynamic assessment of ischemic and bleeding risks in patients on DAPT following PCI},
   author={[Author names]},
   journal={[Journal Name]},
   year={[Year]},
