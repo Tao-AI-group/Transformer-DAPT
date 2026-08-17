@@ -166,11 +166,7 @@ If you use Transformer-DAPT in your research, please cite our paper:
 
 ## License
 
-[Specify the license]
-
-## Contributors
-
-[List of contributors]
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
 ## Contact
 For questions please contact: Ahmed Abdelhameed abdelhameed.ahmed@mayo.edu
