@@ -2,6 +2,8 @@
 
 This repository contains the implementation of Transformer-DAPT, a novel transformer-based model developed for optimizing dual antiplatelet therapy (DAPT) management after percutaneous coronary intervention (PCI). The model analyzes multi-hot encoded clinical features to individually predict both ischemic events and bleeding complications within a 365-day window post-PCI. By providing separate predictions for each outcome type, Transformer-DAPT enables clinicians to assess a patient's specific risk profile for both complications independently. The model outperforms traditional survival models (DeepSurv and DeepHit) in time-specific concordance indices at clinically relevant intervals (30, 60, 90, 180, 270, and 365 days).
 
+**Note:** The scripts in this repository are shown for the **bleeding** outcome as a worked example. The **ischemic** outcome uses the exact same pipeline (same scripts, same `modules/`, same stage order) — simply re-run each stage against ischemic-event data and outputs.
+
 ## Overview
 
 Transformer-DAPT applies the transformer architecture to model survival data in the context of post-PCI management, with both clinical and technical innovations:
@@ -48,14 +50,17 @@ Transformer-DAPT/
 │   ├── model_comparison.py         # Statistical comparison tools for model evaluation
 │   ├── utils.py                    # General utility functions
 │   ├── evaluate_utils.py           # Evaluation metrics and utility functions
-│   └── calibration_advanced_V2.py  # Model calibration utilities
+│   ├── calibration_advanced_V2.py  # Model calibration utilities
+│   └── modeling_bert.py            # BERT-derived classification head used by model.py
 ├── 01_Optuna_Hyperparameter_Tuning.py  # Hyperparameter optimization with Optuna
 ├── 02_Feature_Importance_IntegratedGradients.py  # Feature importance analysis
 ├── 03_Evaluation_Transformer_DAPT_Multiple_Intervals_Bootstrapping.py  # Model evaluation with bootstrapping
 ├── 04_Evaluation_Baseline_Deephit_Multiple_Intervals_Bootstrapping.py  # DeepHit baseline evaluation
 ├── 05_Evaluation_Baseline_Deepsurv_Multiple_Intervals_Bootstrapping.py  # DeepSurv baseline evaluation
 ├── 06_Compare_Models_Performance.py  # Model comparison framework
-└── 07_Transformer_DAPT_Model_Calibration_V2.py  # Advanced calibration implementation
+├── 07_Transformer_DAPT_Model_Calibration_V2.py  # Advanced calibration implementation
+├── DAPT_Score_C-index.ipynb        # C-index of the traditional DAPT score, for baseline comparison
+└── PRECISE_DAPT_C-index.ipynb      # C-index of the PRECISE-DAPT score, for baseline comparison
 ```
 
 ## Installation
@@ -128,6 +133,10 @@ python 02_Feature_Importance_IntegratedGradients.py --model_path [path_to_model]
 ```bash
 python 07_Transformer_DAPT_Model_Calibration_V2.py
 ```
+
+### Baseline Score Comparison
+
+`DAPT_Score_C-index.ipynb` and `PRECISE_DAPT_C-index.ipynb` compute the time-specific concordance index for the traditional DAPT score and PRECISE-DAPT score respectively, on the same cohort, as the reference baselines discussed in [Clinical Context and Applications](#clinical-context-and-applications).
 
 ## Citation
 
