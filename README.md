@@ -60,7 +60,9 @@ Transformer-DAPT/
 ├── 06_Compare_Models_Performance.py  # Model comparison framework
 ├── 07_Transformer_DAPT_Model_Calibration_V2.py  # Advanced calibration implementation
 ├── DAPT_Score_C-index.ipynb        # C-index of the traditional DAPT score, for baseline comparison
-└── PRECISE_DAPT_C-index.ipynb      # C-index of the PRECISE-DAPT score, for baseline comparison
+├── PRECISE_DAPT_C-index.ipynb      # C-index of the PRECISE-DAPT score, for baseline comparison
+└── figures/
+    └── performance_comparison.png  # C-index comparison figure from the associated publication
 ```
 
 ## Installation
@@ -138,20 +140,29 @@ python 07_Transformer_DAPT_Model_Calibration_V2.py
 
 `DAPT_Score_C-index.ipynb` and `PRECISE_DAPT_C-index.ipynb` compute the time-specific concordance index for the traditional DAPT score and PRECISE-DAPT score respectively, on the same cohort, as the reference baselines discussed in [Clinical Context and Applications](#clinical-context-and-applications).
 
+## Results
+
+![Time-dependent C-index comparison](figures/performance_comparison.png)
+
+Time-dependent concordance index for Transformer-DAPT versus the DeepSurv and DeepHit baselines across 1/2/3/6/9/12-month prediction windows, for both the bleeding and ischemic outcomes. Figure from the associated publication.
+
 ## Citation
 
 If you use Transformer-DAPT in your research, please cite our paper:
 
+> Abdelhameed, A. et al. Transformer-DAPT: AI-based dynamic assessment of ischemic and bleeding risks in patients on DAPT following PCI. *npj Digital Medicine* (2026). https://doi.org/10.1038/s41746-026-02977-9
+
 ```bibtex
 @article{transformer_dapt,
   title={Transformer-DAPT: AI-based dynamic assessment of ischemic and bleeding risks in patients on DAPT following PCI},
-  author={[Author names]},
-  journal={[Journal Name]},
-  year={[Year]},
-  volume={[Volume]},
-  pages={[Pages]}
+  author={Abdelhameed, Ahmed and others},
+  journal={npj Digital Medicine},
+  year={2026},
+  doi={10.1038/s41746-026-02977-9}
 }
 ```
+
+*Full author list, volume, and page/article numbers to be added once available — see the publisher page for the definitive record: https://doi.org/10.1038/s41746-026-02977-9*
 
 ## License
 
