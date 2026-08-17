@@ -29,6 +29,8 @@ Existing risk stratification tools such as the DAPT score and PRECISE-DAPT score
 
 ## Model Architecture
 
+![Transformer-DAPT system architecture](figures/system_architecture.png)
+
 Transformer-DAPT consists of several specialized components designed for survival analysis:
 
 - **FeatureEmbedding Layer**: Converts categorical indices into dense embeddings with dropout regularization and padding token handling
@@ -62,6 +64,7 @@ Transformer-DAPT/
 ├── DAPT_Score_C-index.ipynb        # C-index of the traditional DAPT score, for baseline comparison
 ├── PRECISE_DAPT_C-index.ipynb      # C-index of the PRECISE-DAPT score, for baseline comparison
 └── figures/
+    ├── system_architecture.png      # Model architecture diagram from the associated publication
     └── performance_comparison.png  # C-index comparison figure from the associated publication
 ```
 
