@@ -56,10 +56,10 @@ class DenseVanillaBlock(nn.Module):
         return x
 
 
-class BertCLS(nn.Module):
+class ClassificationHead(nn.Module):
     """
-    A classification head for BERT-like models that first projects hidden states
-    through an MLP and then produces two outputs:
+    A classification head that first projects hidden states through an MLP
+    and then produces two outputs:
     1) A multi-dimensional output (`output_logits`).
     2) A single-neuron binary output (`binary_logits`).
 
@@ -94,7 +94,7 @@ class BertCLS(nn.Module):
 
     def forward(self, hidden_states: torch.Tensor):
         """
-        Forward pass of the BertCLS head.
+        Forward pass of the ClassificationHead.
 
         Args:
             hidden_states (torch.Tensor): Tensor of shape (batch_size, num_features, hidden_size)

@@ -51,7 +51,7 @@ Transformer-DAPT/
 │   ├── utils.py                    # General utility functions
 │   ├── evaluate_utils.py           # Evaluation metrics and utility functions
 │   ├── calibration_advanced_V2.py  # Model calibration utilities
-│   └── modeling_bert.py            # BERT-derived classification head used by model.py
+│   └── classification_head.py      # Classification head used by model.py
 ├── 01_Optuna_Hyperparameter_Tuning.py  # Hyperparameter optimization with Optuna
 ├── 02_Feature_Importance_IntegratedGradients.py  # Feature importance analysis
 ├── 03_Evaluation_Transformer_DAPT_Multiple_Intervals_Bootstrapping.py  # Model evaluation with bootstrapping

@@ -3,7 +3,7 @@ from torch import nn
 import torch.nn.functional as F
 import numpy as np
 import pandas as pd
-from .modeling_bert import BertCLS
+from .classification_head import ClassificationHead
 from pycox.models.utils import pad_col, make_subgrid
 import torchtuples as tt
 import random
@@ -99,8 +99,8 @@ class Transformer_DAPT(nn.Module):
         self.batch_norm = nn.BatchNorm1d(config.hidden_size)
         self.dropout = nn.Dropout(0.3)
 
-        # Classification head (BERT-style CLS)
-        self.cls = BertCLS(config)
+        # Classification head
+        self.cls = ClassificationHead(config)
         self.sigmoid = nn.Sigmoid()
 
         # Store attention weights for interpretation
